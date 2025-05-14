@@ -11,11 +11,17 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth import authenticate
 from django.db.models import Subquery, OuterRef
 
+'''
+    Contains all the logic related to kudo model since we are using ModelViewSet of DRF
+'''
 class KudoViewSet(viewsets.ModelViewSet):
     queryset = Kudo.objects.all()
     serializer_class = KudoSerializer
     permission_classes = [IsAuthenticated]
 
+    '''
+        Provides all the kudos received from other users
+    '''
     @action(detail=False, methods=["get"], url_path="received")
     def received_kudos(self, request):
         user = request.user
@@ -23,6 +29,9 @@ class KudoViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(received_kudos, many=True)
         return Response(serializer.data)
 
+    '''
+        Provides all the kudos given to other users
+    '''
     @action(detail=False, methods=["get"], url_path="given")
     def given_kudos(self, request):
         user = request.user
@@ -30,6 +39,9 @@ class KudoViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(given_kudos, many=True)
         return Response(serializer.data)
 
+    '''
+        Fetch all the available kudos for a user (as of now configured as 3 but can be changed in admin)
+    '''
     @action(detail=False, methods=["get"], url_path="available-kudos")
     def available_kudos(self, request):
         user = request.user
@@ -39,6 +51,9 @@ class KudoViewSet(viewsets.ModelViewSet):
         available_kudos = max(0, weekly_kudos_limit - given_this_week)
         return Response({"available_kudos": available_kudos})
 
+    '''
+        Main logic of giving (upto weekly limit of) kudos to people
+    '''
     @action(detail=False, methods=["post"], url_path="give")
     @validate_kudo_data
     def give_kudo(self, request):
@@ -49,16 +64,26 @@ class KudoViewSet(viewsets.ModelViewSet):
         kudo = Kudo.objects.create(from_user=from_user, to_user=to_user, message=message)
         return Response(KudoSerializer(kudo).data, status=status.HTTP_201_CREATED)
 
+
+'''
+    Contains all the logic related to user model since we are using ModelViewSet of DRF
+'''
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+    '''
+        Gets the current user who is logged in
+    '''
     @action(detail=False, methods=["get"], url_path="current_user", permission_classes=[IsAuthenticated])
     def current_user(self, request):
         user = request.user
         serializer = self.get_serializer(user)
         return Response(serializer.data)
 
+    '''
+        Registers a new user
+    '''
     @action(detail=False, methods=["post"], url_path="register")
     @validate_register_data
     def register_user(self, request):
@@ -76,6 +101,9 @@ class UserViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(user)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     
+    '''
+        Login a user and provide access token which will be used for all other endpoints
+    '''
     @action(detail=False, methods=["post"], url_path="login")
     @validate_login_data
     def login_user(self, request):
@@ -92,6 +120,9 @@ class UserViewSet(viewsets.ModelViewSet):
             "access_token": str(refresh.access_token)
         }, status=status.HTTP_200_OK)
 
+    '''
+        Fetch all users who belong to same organization to give kudos to
+    '''
     @action(detail=False, methods=["get"], url_path="same-organization-users", permission_classes=[IsAuthenticated])
     def same_organization_users(self, request):
         user = request.user
@@ -101,6 +132,9 @@ class UserViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(same_org_users, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
+    '''
+        Get all organizations registered which is required during registration of a user
+    '''
     @action(detail=False, methods=["get"], url_path="organizations")
     def organizations(self, request):
         organizations = Organization.objects.all().values("id", "name")
