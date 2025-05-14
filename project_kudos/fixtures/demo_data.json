@@ -1,0 +1,46 @@
+[
+    {
+        "model": "app_kudos.organization",
+        "fields": {
+            "name": "Mitratech",
+            "created_at": "2025-05-13T12:00:00Z"
+        }
+    },
+    {
+        "model": "app_kudos.organization",
+        "fields": {
+            "name": "Eurofins",
+            "created_at": "2025-05-13T12:00:00Z"
+        }
+    },
+    {
+        "model": "app_kudos.user",
+        "fields": {
+            "username": "manoj",
+            "password": "pass123",
+            "organization": 1
+        }
+    },
+    {
+        "model": "app_kudos.user",
+        "fields": {
+            "username": "samuel",
+            "password": "pass456",
+            "organization": 1
+        }
+    },
+    {
+        "model": "app_kudos.user",
+        "fields": {
+            "username": "cesar",
+            "password": "pass789",
+            "organization": 2
+        }
+    },
+    {
+        "model": "app_kudos.kudoconfig",
+        "fields": {
+            "weekly_kudos_limit": 3
+        }
+    }
+]
