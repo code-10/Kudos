@@ -17,15 +17,21 @@ export class RegisterComponent {
   organization_id = '';
   successMessage: string | null = null;
   errorMessage: string | null = null;
+  organizations: any[] = [];
+  selectedOrganization: string = '';
 
   constructor(private sharedService: SharedService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.fetchOrganizations();
+  }
 
   onSubmit() {
     const userData = {
       username: this.username,
       email: this.email,
       password: this.password,
-      organization_id: this.organization_id,
+      organization_id: this.selectedOrganization,
     };
 
     this.sharedService.registerUser(userData).subscribe({
@@ -39,6 +45,17 @@ export class RegisterComponent {
         this.errorMessage = 'Registration failed. Please try again.';
         this.successMessage = null;
       }
+    });
+  }
+
+  fetchOrganizations(): void {
+    this.sharedService.getOrganizations().subscribe({
+      next: (response: any) => {
+        this.organizations = response.reverse();
+      },
+      error: (error) => {
+        console.error('Error fetching organizations:', error);
+      },
     });
   }
 }

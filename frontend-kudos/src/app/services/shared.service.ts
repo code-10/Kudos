@@ -69,6 +69,10 @@ export class SharedService {
     return this.http.get(`${this.kudosApi}received/`, { headers });
   }
 
+  getOrganizations(): Observable<any> {
+    return this.http.get(`${this.usersApi}organizations/`);
+  }
+
   setLoggedIn(status: boolean) {
     this.loggedInStatus.next(status);
   }
