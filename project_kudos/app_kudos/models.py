@@ -8,13 +8,20 @@ class Organization(models.Model):
     def __str__(self):
         return self.name
 
+'''
+    This is so that admin can modify the weekly kudos limit in future
+'''
 class KudoConfig(models.Model):
     weekly_kudos_limit = models.PositiveIntegerField(default=3)
 
     def __str__(self):
         return f"Weekly Kudos Limit: {self.weekly_kudos_limit}"
     
-#This is for creating superuser since user has organization which is not null
+'''
+    This is a custom super user creation management function
+    Since user model has organization which is not null
+    We are custom adding organization during creation of superuser
+'''
 class CustomUserManager(UserManager):
     def create_superuser(self, username, email=None, password=None, **extra_fields):
         if not extra_fields.get("organization"):
@@ -25,6 +32,9 @@ class CustomUserManager(UserManager):
 
         return super().create_superuser(username, email, password, **extra_fields)
 
+'''
+    Inheriting all the fields from django.contrib.auth.models
+'''
 class User(AbstractUser):
     organization = models.ForeignKey(Organization, on_delete=models.CASCADE, related_name="users")
 

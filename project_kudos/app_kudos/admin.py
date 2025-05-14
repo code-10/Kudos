@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import User, Organization, Kudo, KudoConfig
 
 '''
-Registering the models for admin page access
+    Registering the models for admin page access
 '''
 
 admin.site.register(User)

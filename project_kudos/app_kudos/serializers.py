@@ -1,6 +1,10 @@
 from rest_framework import serializers
 from .models import Organization, User, Kudo
 
+'''
+    Serializers for Transforming Django models and querysets which are in views
+'''
+
 class OrganizationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Organization

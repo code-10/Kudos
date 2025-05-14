@@ -2,7 +2,7 @@ from rest_framework.exceptions import APIException
 from rest_framework import status
 
 '''
-Custom Exception for better error handling
+    Custom Exceptions for better error handling
 '''
 
 class MissingFieldsError(APIException):

@@ -4,6 +4,11 @@ from rest_framework import status
 from .models import User, Kudo, KudoConfig
 from django.utils import timezone
 
+'''
+    Validating Kudos request data, user data
+    Checking for weekly kudos limit and available kudos
+    Giving Kudos to people only in the organization
+'''
 def validate_kudo_data(func):
     @wraps(func)
     def wrapper(self, request, *args, **kwargs):
@@ -37,6 +42,9 @@ def validate_kudo_data(func):
     return wrapper
 
 
+'''
+    Validating registration request of a user
+'''
 def validate_register_data(func):
     @wraps(func)
     def wrapper(self, request, *args, **kwargs):
@@ -54,6 +62,9 @@ def validate_register_data(func):
     return wrapper
 
 
+'''
+    Validating login request information
+'''
 def validate_login_data(func):
     @wraps(func)
     def wrapper(self, request, *args, **kwargs):
