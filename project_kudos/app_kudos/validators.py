@@ -35,3 +35,37 @@ def validate_kudo_data(func):
         return func(self, request, *args, **kwargs)
 
     return wrapper
+
+
+def validate_register_data(func):
+    @wraps(func)
+    def wrapper(self, request, *args, **kwargs):
+        required_fields = ["username", "password", "email", "organization_id"]
+        missing_fields = [field for field in required_fields if field not in request.data]
+
+        if missing_fields:
+            return Response(
+                {"error": f"Missing required fields: {', '.join(missing_fields)}"},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        return func(self, request, *args, **kwargs)
+
+    return wrapper
+
+
+def validate_login_data(func):
+    @wraps(func)
+    def wrapper(self, request, *args, **kwargs):
+        required_fields = ["username", "password"]
+        missing_fields = [field for field in required_fields if field not in request.data]
+
+        if missing_fields:
+            return Response(
+                {"error": f"Missing required fields: {', '.join(missing_fields)}"},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        return func(self, request, *args, **kwargs)
+
+    return wrapper

@@ -1,4 +1,4 @@
-from app_kudos.validators import validate_kudo_data
+from app_kudos.validators import validate_kudo_data, validate_login_data, validate_register_data
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -60,14 +60,12 @@ class UserViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
     @action(detail=False, methods=["post"], url_path="register")
+    @validate_register_data
     def register_user(self, request):
-        username = request.data.get("username")
-        password = request.data.get("password")
-        email = request.data.get("email")
-        organization_id = request.data.get("organization_id")
-
-        if not (username and password and email and organization_id):
-            raise MissingFieldsError("All fields are required.")
+        username = request.data["username"]
+        password = request.data["password"]
+        email = request.data["email"]
+        organization_id = request.data["organization_id"]
 
         try:
             organization = Organization.objects.get(id=organization_id)
@@ -77,14 +75,12 @@ class UserViewSet(viewsets.ModelViewSet):
         user = User.objects.create_user(username=username, password=password, email=email, organization=organization)
         serializer = self.get_serializer(user)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
-
+    
     @action(detail=False, methods=["post"], url_path="login")
+    @validate_login_data
     def login_user(self, request):
-        username = request.data.get("username")
-        password = request.data.get("password")
-
-        if not (username and password):
-            return Response({"error": "Both 'username' and 'password' are required"}, status=status.HTTP_400_BAD_REQUEST)
+        username = request.data["username"]
+        password = request.data["password"]
 
         user = authenticate(request, username=username, password=password)
         
