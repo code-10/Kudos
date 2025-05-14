@@ -1,10 +1,30 @@
 # Kudos
 Kudos application
 
-## Setup Instructions
+## Setup Instructions for Frontend - Angular
+
+### 1. Change directory for npm install
+```bash
+cd frontend-kudos
+```
+
+### 2. npm install
+```bash
+npm install
+```
+
+### 3. Run the application
+```bash
+ng serve or ng s
+```
+
+Note: Make sure to have latest version of nodejs and Angular CLI installed
+
+
+## Setup Instructions for Backend - Django
 
 ### 1. Create a virtual environment and activate it
-```Command Prompt
+```bash
 virtualenv venv
 venv\Scripts\activate
 ```
