@@ -1,0 +1,31 @@
+<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+  {{ errorMessage }}
+</div>
+
+<form class="m-4" (ngSubmit)="onSubmit()">
+  <div class="form-group m-2">
+    <label for="email">Email address</label>
+    <input [(ngModel)]="email" name="email" type="email" class="form-control" id="email" placeholder="Enter email" required>
+  </div>
+  
+  <div class="form-group m-2">
+    <label for="username">Username</label>
+    <input [(ngModel)]="username" name="username" type="text" class="form-control" id="username" placeholder="Enter username" required>
+  </div>
+  
+  <div class="form-group m-2">
+    <label for="password">Password</label>
+    <input [(ngModel)]="password" name="password" type="password" class="form-control" id="password" placeholder="Password" required>
+  </div>
+  
+  <div class="form-group m-2">
+    <label for="organization">Organization</label>
+    <select [(ngModel)]="organization_id" name="organization_id" class="form-control" id="organization" required>
+      <option value="" selected>Choose...</option>
+      <option value="1">Mitratech</option>
+      <option value="2">Eurofins</option>
+    </select>
+  </div>
+  
+  <button type="submit" class="btn btn-primary m-2">Register</button>
+</form>
