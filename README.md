@@ -18,9 +18,25 @@ npm install
 ng serve or ng s
 ```
 
+Note: Make sure to have latest version of nodejs and Angular CLI installed
+
 Visit `http://localhost:4200/dashboard` in your browser
 
-Note: Make sure to have latest version of nodejs and Angular CLI installed
+![register](https://github.com/user-attachments/assets/f35672b4-5b43-4058-b319-1358f1e28a07)
+
+![login](https://github.com/user-attachments/assets/9d2c9388-e3ad-48da-979e-eb22583562d8)
+
+![dashboard](https://github.com/user-attachments/assets/2e6d6d70-02e3-4d7d-9984-ae6ea14960e1)
+
+![give_kudos](https://github.com/user-attachments/assets/78ba713e-037f-4a7c-977d-d5cd421bca25)
+
+![kudos_given](https://github.com/user-attachments/assets/6cf5fc23-f129-46ff-8a84-87c8fc6ddef1)
+
+![updated_after_kudos_given](https://github.com/user-attachments/assets/546a39d1-562a-4253-acd5-39c1bdd752b4)
+
+![given_kudos](https://github.com/user-attachments/assets/9118515c-8adb-4835-844d-824474305c95)
+
+![kudos_received](https://github.com/user-attachments/assets/91166df0-8a0c-438e-8799-809d02eca1dd)
 
 ***
 
