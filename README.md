@@ -23,6 +23,7 @@ cd project_kudos
 ```bash
 python manage.py makemigrations app_kudos
 python manage.py makemigrations
+python manage.py migrate app_kudos
 python manage.py migrate
 ```
 
