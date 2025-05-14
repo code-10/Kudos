@@ -12,6 +12,7 @@ import { SharedService } from '../../services/shared.service';
 export class HeaderComponent {
   isLoggedIn = false;
   username: string | null = '';
+  organization: string = ''
 
   constructor(private sharedService: SharedService, private router: Router) {}
 
@@ -27,7 +28,8 @@ export class HeaderComponent {
   getCurrentUser() {
     this.sharedService.getCurrentUser().subscribe({
       next: (user) => {
-        this.username = user.username.charAt(0).toUpperCase() + user.username.slice(1);
+        this.username = user.username;
+        this.organization = user.organization.name;
       },
       error: (error) => {
         console.error('Error fetching current user:', error);
