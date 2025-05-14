@@ -82,7 +82,7 @@ export class DashboardComponent {
   fetchGivenKudos(): void {
     this.sharedService.getGivenKudos().subscribe({
       next: (response: any) => {
-        // Map the nested structure to a flat one for easier handling
+        // Mapping the nested structure to a flat one for easier handling
         this.sameOrgUsers = response.map((kudo: any) => ({
           id: kudo.id,
           username: kudo.to_user.username,
@@ -99,7 +99,7 @@ export class DashboardComponent {
   fetchReceivedKudos(): void {
     this.sharedService.getReceivedKudos().subscribe({
       next: (response: any) => {
-        // Map the nested structure to a flat one for easier handling
+        // Mapping the nested structure to a flat one for easier handling
         this.sameOrgUsers = response.map((kudo: any) => ({
           id: kudo.id,
           username: kudo.from_user.username,
