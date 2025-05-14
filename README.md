@@ -71,12 +71,17 @@ python manage.py migrate
 python manage.py loaddata fixtures/demo_data.json
 ```
 
-### 5. Run the application
+### 6. Run the application
 ```bash
 python manage.py runserver
 ```
 
 Visit `http://127.0.0.1:8000/` in your browser
+
+Note: To run tests
+```bash
+pytest
+```
 
 ![register](https://github.com/user-attachments/assets/de9d73a4-e2cd-44cb-9b2d-a6816234a141)
 
