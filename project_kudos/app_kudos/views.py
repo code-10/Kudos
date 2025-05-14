@@ -100,3 +100,8 @@ class UserViewSet(viewsets.ModelViewSet):
         same_org_users = User.objects.filter(organization=organization).exclude(id=user.id).exclude(pk__in=Subquery(already_given_kudos.values('to_user_id')))
         serializer = self.get_serializer(same_org_users, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    @action(detail=False, methods=["get"], url_path="organizations")
+    def organizations(self, request):
+        organizations = Organization.objects.all().values("id", "name")
+        return Response(list(organizations), status=status.HTTP_200_OK)
