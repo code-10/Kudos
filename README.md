@@ -20,6 +20,7 @@ ng serve or ng s
 
 Note: Make sure to have latest version of nodejs and Angular CLI installed
 
+***
 
 ## Setup Instructions for Backend - Django
 
