@@ -1,0 +1,409 @@
+{
+  "version": 6,
+  "entities": [
+    {
+      "entity": {
+        "type": "Project",
+        "id": "499364dd-773c-4ef1-a39a-4105f19e788f",
+        "name": "Kudos"
+      },
+      "children": [
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8000",
+              "path": "/api/users/organizations/"
+            },
+            "id": "90aeca8e-db30-421a-83fc-111649362177",
+            "name": "All organizations",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3MjM1MDA4LCJpYXQiOjE3NDcyMzE0MDgsImp0aSI6IjI4N2UwNWY3ZjAzYjRhMmFiOTA1YjBhNGMyOGQ2ZTQzIiwidXNlcl9pZCI6NH0.MihqO6avjeU17o2x6fvOwbI8HPYurwk4M6QCLXKWTB4"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8000",
+              "path": "/api/kudos/available-kudos/"
+            },
+            "id": "91c7d089-3bcb-4d79-b845-b32117724dfe",
+            "name": "Available Kudos",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3MjMwNTc3LCJpYXQiOjE3NDcyMjY5NzcsImp0aSI6IjliMTY3ZDBmYWNmMTRjNzc4Y2ViYTI4Zjg3YWM4MjQzIiwidXNlcl9pZCI6NH0.e_iELVdLp3yS3WRxhVYCvlFynN9knH3TyTt-LoXknyE"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8000",
+              "path": "/api/users/current_user/"
+            },
+            "id": "e618a119-aa46-487a-a012-885e382fc426",
+            "name": "Current User",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3MjMwNTc3LCJpYXQiOjE3NDcyMjY5NzcsImp0aSI6IjliMTY3ZDBmYWNmMTRjNzc4Y2ViYTI4Zjg3YWM4MjQzIiwidXNlcl9pZCI6NH0.e_iELVdLp3yS3WRxhVYCvlFynN9knH3TyTt-LoXknyE"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBodyEditorHeight": 150,
+              "textBody": "{\n  \"to_user_id\":4,\n  \"message\":\"Kudos for your work 2\"\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8000",
+              "path": "/api/kudos/give/"
+            },
+            "id": "ee99f20d-bac8-4ece-8b69-f42a29b7f26a",
+            "name": "Give Kudos",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3MjMwNTc3LCJpYXQiOjE3NDcyMjY5NzcsImp0aSI6IjliMTY3ZDBmYWNmMTRjNzc4Y2ViYTI4Zjg3YWM4MjQzIiwidXNlcl9pZCI6NH0.e_iELVdLp3yS3WRxhVYCvlFynN9knH3TyTt-LoXknyE"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8000",
+              "path": "/api/kudos/given/"
+            },
+            "id": "e4291b9c-c603-431a-af55-b8cde1557568",
+            "name": "Given Kudos",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3MjM1NTgyLCJpYXQiOjE3NDcyMzE5ODIsImp0aSI6IjA1YjVhNTJkMjY3MjRhZjBhMDFiMzEwNmY4MTc3MTJkIiwidXNlcl9pZCI6Nn0.q1LCoIUnJfkh1Ex7lMBwh3pf7QCmH-RZgl2kq27xRc0"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBodyEditorHeight": 150,
+              "textBody": "{\n  \"username\":\"dummy\",\n  \"password\":\"dummy\"\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8000",
+              "path": "/api/users/login/"
+            },
+            "id": "bbc6c3b7-84bb-4571-b64e-dfe3b8d0d7ff",
+            "name": "Login",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBody": "{\n  \"refresh_token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc0Nzc5NTgwNywiaWF0IjoxNzQ3MTkxMDA3LCJqdGkiOiJiMDM5NWJjOWM5OTM0NTQ4ODc5MTIyYjM3NTJiNGJlNyIsInVzZXJfaWQiOjR9.fUiFnlV4iSxHsLjkhgMay-hft3zMk3dmeuPkwFfuOK4\" \n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8000",
+              "path": "/api/users/logout/"
+            },
+            "id": "e65617c3-f7ab-4ee2-9138-420adf133f7e",
+            "name": "Logout",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3MTk0NjA3LCJpYXQiOjE3NDcxOTEwMDcsImp0aSI6IjJmZGZlZjI2M2I1MzRjYzdhOTc0MzNjY2UzYWRkYWQzIiwidXNlcl9pZCI6NH0.yNIP1lu_Ac1ry1VmtgRsXcwCnugv_x3BRkDR_5t8_M8"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8000",
+              "path": "/api/kudos/received/"
+            },
+            "id": "372cc29b-6336-40ab-863f-6de404c8666f",
+            "name": "Received Kudos",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3MjMxMjI0LCJpYXQiOjE3NDcyMjc2MjQsImp0aSI6ImYzN2EwNjlkN2JjYjRjZDJhNWViNzhiOTJlMjNhMzBkIiwidXNlcl9pZCI6NH0.KiC63ukNq1npnVKSWWsWIRDdfV5srzDY1ObmUqmp7vQ"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBodyEditorHeight": 150,
+              "textBody": "{\n  \"username\":\"test\",\n  \"email\":\"test@gmail.com\",\n  \"password\":\"test\",\n  \"organization_id\":1\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8000",
+              "path": "/api/users/register/"
+            },
+            "id": "6b0a96f6-66b8-45a3-ae51-d843e81ad9ed",
+            "name": "Register",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8000",
+              "path": "/api/users/same-organization-users/"
+            },
+            "id": "a91f6cdf-cf4c-47ba-9c58-dd7d9e7eda93",
+            "name": "Same organization users",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3MjgyMjA4LCJpYXQiOjE3NDcyNzg2MDgsImp0aSI6IjEwOWRhYjVhMjIzZjRmMDY4MDEyMGIzN2U0M2E4NTNkIiwidXNlcl9pZCI6NH0.lkpJiEG2pgDYqEIJ4ntpexs2jwPQOi7uMrlvjETDsMQ"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
