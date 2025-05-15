@@ -127,8 +127,8 @@ class UserViewSet(viewsets.ModelViewSet):
     def same_organization_users(self, request):
         user = request.user
         organization = user.organization
-        already_given_kudos = Kudo.objects.filter(from_user=user, to_user=OuterRef('pk'))
-        same_org_users = User.objects.filter(organization=organization).exclude(id=user.id).exclude(pk__in=Subquery(already_given_kudos.values('to_user_id')))
+        given_kudos_user_ids = Kudo.objects.filter(from_user=user).values_list('to_user_id', flat=True)
+        same_org_users = User.objects.filter(organization=organization).exclude(id=user.id).exclude(id__in=given_kudos_user_ids)
         serializer = self.get_serializer(same_org_users, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
